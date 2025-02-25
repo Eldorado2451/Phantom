@@ -1,3 +1,5 @@
+# Function of code: this is a simple while loop that prints ON and OFF 5x, using delays (sleep)
+
 from time import sleep          #import sleep for the delay
 
 i = 0                           # i is declared globally
