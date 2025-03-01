@@ -2,7 +2,8 @@
 Function of the code: This code controls an LED and fades it in and out. LED is connected to GPIO18 -> PWM.
 """
 
-import RPi.GPIO as GPIO  
+import RPi.GPIO as GPIO
+from time import sleep
 
 GPIO.setmode(GPIO.BCM)  
 PWM_PIN = 18  
@@ -27,7 +28,8 @@ try:
     while True:
         update_dc()
         pwm.ChangeDutyCycle(dc)
-except KeyboardInterrupt
+        sleep(0.2)
+except KeyboardInterrupt:
     pass
 pwm.stop()
 GPIO.cleanup()
