@@ -1,4 +1,4 @@
-#Function of the code: define xyz, convert xyz into new abc, print and print a random number
+#Function of the code: define xyz, convert xyz into new abc, print all variables and print a random number
 
 import random                       #imports module "random"
 
