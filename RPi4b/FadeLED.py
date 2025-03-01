@@ -2,22 +2,16 @@
 Function of the code: This code controls an LED and fades it in and out. LED is connected to GPIO18 -> PWM.
 """
 
-import RPi.GPIO as GPIO
-from time import sleep
+import RPi.GPIO as GPIO  
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(18, GPIO.OUT)
+GPIO.setmode(GPIO.BCM)  
+PWM_PIN = 18  
+GPIO.setup(PWM_PIN, GPIO.OUT)  
 
-pwm = GPIO.PWM(18, 1000)
-pwm.start(0)
+pwm = GPIO.PWM(PWM_PIN, 1000)  # 1 kHz frequency  
+pwm.start(50)  # Start PWM with 50% duty cycle  
 
-dc = 0
+input("Press Enter to exit...")  # Keeps the script running  
 
-while True:
-    if dc == 0:
-        a = 10
-    if dc == 100:
-        a = -10
-    pwm.ChangeDutyCycle(dc + a)
-    
-    
+pwm.stop()  
+GPIO.cleanup()
