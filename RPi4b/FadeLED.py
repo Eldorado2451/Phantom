@@ -8,10 +8,27 @@ GPIO.setmode(GPIO.BCM)
 PWM_PIN = 18  
 GPIO.setup(PWM_PIN, GPIO.OUT)  
 
-pwm = GPIO.PWM(PWM_PIN, 1000)  # 1 kHz frequency  
-pwm.start(50)  # Start PWM with 50% duty cycle  
+pwm = GPIO.PWM(PWM_PIN, 1000)   # 1 kHz frequency  
+pwm.start(0)                    # Start PWM with 50% duty cycle
 
-input("Press Enter to exit...")  # Keeps the script running  
+dc = 0
+a = 0
 
-pwm.stop()  
+def update_dc():
+    global dc
+    global a
+    if dc == 0:
+        a = 10
+    if dc == 100:
+        a = -10
+    dc = dc + a
+
+try:
+    while True:
+        update_dc()
+        pwm.ChangeDutyCycle(dc)
+except KeyboardInterrupt
+    pass
+pwm.stop()
 GPIO.cleanup()
+
