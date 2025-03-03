@@ -38,7 +38,8 @@ try:                                # -> "try:" is a Exception handling block th
         update_dc()                 # Function call
         pwm.ChangeDutyCycle(dc)
         sleep(0.2)
-except KeyboardInterrupt:           # -> "except" is the exception handling block that CATCHES EXCEPTIONS and executes something after the exception is caught.
-    pass                            # -> "pass" silently ignores the exception without taking action
-pwm.stop()                          # Stop pwm instance
-GPIO.cleanup()                      # Cleans up GPIO18: releases control over GPIO18
+except KeyboardInterrupt:                               # -> "except" is the exception handling block that CATCHES EXCEPTIONS and executes something after the exception is caught.
+    print("Execution interrupted by keyboard input.")   # Prints message to user in console
+    pass                                                # -> "pass" silently ignores the exception without taking action
+pwm.stop()                                              # Stop pwm instance
+GPIO.cleanup()                                          # Cleans up GPIO18: releases control over GPIO18
