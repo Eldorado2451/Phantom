@@ -7,18 +7,19 @@ which also includes an update on the Duty Cycle "dc". dc is updated in a differe
 and thus "dc". Even reversing the increment at 0 and 100! sleep() is used to define the frequency of increments.
 """
 
-import RPi.GPIO as GPIO
-from time import sleep
+import RPi.GPIO as GPIO         # Import module
+from time import sleep          # Import sleep
 
-GPIO.setmode(GPIO.BCM)  
-PWM_PIN = 18  
-GPIO.setup(PWM_PIN, GPIO.OUT)  
+GPIO.setmode(GPIO.BCM)          # Set GPIO numberbering to BCM (GPIOxx)
+PWM_PIN = 18                    # Define PWM pin numbering 
+GPIO.setup(PWM_PIN, GPIO.OUT)   # Setup GPIO18 as OUTPUT for PWM
 
-pwm = GPIO.PWM(PWM_PIN, 1000)   # 1 kHz frequency  
-pwm.start(0)                    # Start PWM with 50% duty cycle
+pwm = GPIO.PWM(PWM_PIN, 1000)   # -> Start instance of PWM called pwm, assigning it to GPRIO18 and setting the
+                                # PWM frequency to 1kHz
+pwm.start(0)                    # Start PWM with 0% Duty Cycle (= OFF)
 
-dc = 0
-a = 0
+dc = 0                          # Create a variable to store the value of teh Duty Cycle
+a = 0                           # Create a variable for the increment for fading
 
 def update_dc():
     global dc
