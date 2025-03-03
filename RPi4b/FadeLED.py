@@ -43,5 +43,5 @@ except KeyboardInterrupt:                               # -> "except" is the exc
     pass                                                # -> "pass" silently ignores the exception without taking action
 
 finally:
-	pwm.stop()                                      # Stop pwm instance
-	GPIO.cleanup()                              	# Cleans up GPIO18: releases control over GPIO18
+	pwm.stop()                                          # Stop pwm instance
+	GPIO.cleanup()                              	    # Cleans up GPIO18: releases control over GPIO18
