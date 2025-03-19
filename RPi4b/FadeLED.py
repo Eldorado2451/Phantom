@@ -37,9 +37,9 @@ try:                                # -> "try:" is a Exception handling block th
     while True:                     # infinite while loop that executes the updating the dc and the Duty Cycle of the PWM on GPIO18
         update_dc()                 # Function call
         pwm.ChangeDutyCycle(dc)
-        sleep(0.2)
+        sleep(0.1)
 except KeyboardInterrupt:                               # -> "except" is the exception handling block that CATCHES EXCEPTIONS and executes something after the exception is caught.
-    print("Execution interrupted by keyboard input.")   # Prints message to user in console
+    print(" -> Execution interrupted by keyboard input.")   # Prints message to user in console
     pass                                                # -> "pass" silently ignores the exception without taking action
 
 finally:
