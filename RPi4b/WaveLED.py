@@ -14,12 +14,11 @@ PWM_PIN_2 = 13
 PWM_PIN_2 = 12
 GPIO.setup(PWM_PIN_1, GPIO.OUT)
 GPIO.setup(PWM_PIN_2, GPIO.OUT)
-GPIO.setup(PWM_PIN_2, GPIO.OUT)
+GPIO.setup(PWM_PIN_3, GPIO.OUT)
 
 pwm1 = GPIO.PWM(PWM_PIN_1, 1000)
 pwm2 = GPIO.PWM(PWM_PIN_2, 1000)
 pwm3 = GPIO.PWM(PWM_PIN_3, 1000)
-
 
 try:
     pwm1.start(33)
