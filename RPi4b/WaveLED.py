@@ -11,7 +11,7 @@ from time import sleep
 GPIO.setmode(GPIO.BCM)
 PWM_PIN_1 = 19
 PWM_PIN_2 = 13
-PWM_PIN_2 = 12
+PWM_PIN_3 = 12
 GPIO.setup(PWM_PIN_1, GPIO.OUT)
 GPIO.setup(PWM_PIN_2, GPIO.OUT)
 GPIO.setup(PWM_PIN_3, GPIO.OUT)
