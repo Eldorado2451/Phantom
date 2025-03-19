@@ -27,9 +27,9 @@ def update_dc():                    # -> Defines a function to update the Duty C
     global dc                       # Tells the function that the global variables should be used
     global a
     if dc == 0:                     # Set increment a when dc == 0 (0v PWM)
-        a = 10
+        a = 1
     if dc == 100:                   # Change increment a when dc == 100 (3v3 PWM)
-        a = -10
+        a = -1
     dc = dc + a                     # Update dc
 
 try:                                # -> "try:" is a Exception handling block that can be used to RUN code, it executes the test code.
@@ -37,7 +37,7 @@ try:                                # -> "try:" is a Exception handling block th
     while True:                     # infinite while loop that executes the updating the dc and the Duty Cycle of the PWM on GPIO18
         update_dc()                 # Function call
         pwm.ChangeDutyCycle(dc)
-        sleep(0.1)
+        sleep(0.01)
 except KeyboardInterrupt:                               # -> "except" is the exception handling block that CATCHES EXCEPTIONS and executes something after the exception is caught.
     print(" -> Execution interrupted by keyboard input.")   # Prints message to user in console
     pass                                                # -> "pass" silently ignores the exception without taking action
