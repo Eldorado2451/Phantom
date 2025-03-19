@@ -21,8 +21,8 @@ pwm2 = GPIO.PWM(PWM_PIN_2, 1000)
 pwm3 = GPIO.PWM(PWM_PIN_3, 1000)
 
 try:
-    pwm1.start(33)
-    pwm2.start(66)
+    pwm1.start(20)
+    pwm2.start(50)
     pwm3.start(100)
     while True:
         print("running..")
