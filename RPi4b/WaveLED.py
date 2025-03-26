@@ -58,11 +58,11 @@ try:
     pwm3.start(0)
     while True:
         update_dc()
-        if dcList[0] <= 0:
+        if dcList[0] >= 0:
             pwm1.ChangeDutyCycle(dcList[0])
-        if dcList[1] <= 0:
+        if dcList[1] >= 0:
             pwm2.ChangeDutyCycle(dcList[1])
-        if dcList[2] <= 0:
+        if dcList[2] >= 0:
             pwm3.ChangeDutyCycle(dcList[2])
         sleep(0.01)
 
