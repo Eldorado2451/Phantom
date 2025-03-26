@@ -30,19 +30,47 @@ pwm1 = GPIO.PWM(PWM_PIN_1, 1000)
 pwm2 = GPIO.PWM(PWM_PIN_2, 1000)
 pwm3 = GPIO.PWM(PWM_PIN_3, 1000)
 
+dc1 = 0
+dc2 = -66
+dc3 = -172
+a1 = 0
+a2 = 0
+a3 = 0
+
+dcList = [dc1, dc2, dc3]
+aList = [a1, a2, a3]
+
+def update_dc():
+    global dcList
+    global aList
+    for i in range(len(dcList)):
+        if dcList[i] <= 0:
+            aList[i] = 1
+        if dcList[i] == 100:
+            aList[i] = -1
+        dcList[i] = dcList[i] + aList[i]
+
 # Use try/except blocks to run code and exit if ctrl+c is pressed
 try:
     # Start PWMs on GPIO pins
-    pwm1.start(10)
-    pwm2.start(50)
-    pwm3.start(100)
+    pwm1.start(0)
+    pwm2.start(0)
+    pwm3.start(0)
     while True:
-        print("running..")
-        sleep(5)
+        update_dc()
+        if dcList[0] <= 0:
+            pwm1.ChangeDutyCycle(dcList[0])
+        if dcList[1] <= 0:
+            pwm2.ChangeDutyCycle(dcList[1])
+        if dcList[2] <= 0:
+            pwm3.ChangeDutyCycle(dcList[2])
+        sleep(0.01)
+
 except KeyboardInterrupt:
     # Print message when exit
     print(" -> Execution aborted")
     pass
+
 finally:
     # Stop PWMs and release GPIO pins
     pwm1.stop()
