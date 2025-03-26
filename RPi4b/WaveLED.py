@@ -7,6 +7,7 @@ This program is meant to control 3 LEDs in such a way that a wave is achieved fr
 This program is based on Phantom/RPi4b/FadeLED.py, the first RPi PWM program written by me. Instead of 1 PWM signals, a total of are used in this one.
 
 TODO: tell something about the wave functionality and how it differs from controlling 1 PWM
+TODO: filanlize comments
 
 #Author
 Eldorado
@@ -31,8 +32,8 @@ pwm2 = GPIO.PWM(PWM_PIN_2, 1000)
 pwm3 = GPIO.PWM(PWM_PIN_3, 1000)
 
 dc1 = 0
-dc2 = -66
-dc3 = -172
+dc2 = -25
+dc3 = -50
 a1 = 0
 a2 = 0
 a3 = 0
