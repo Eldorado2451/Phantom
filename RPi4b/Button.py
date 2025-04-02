@@ -25,7 +25,7 @@ try:
             print("    > ON")
         else:
             print("OFF <   ")
-        sleep(0,2)
+        sleep(0.2)
 
 except KeyboardInterrupt:
     print("-> Execution aborted")
