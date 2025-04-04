@@ -19,7 +19,7 @@ import time
 BUTTON_PIN = 17         # GPIO17
 DEBOUNCE_TIME = 0.2     # 200ms
 
-GPIO.setmode(BCM)
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 last_press_time = 0
