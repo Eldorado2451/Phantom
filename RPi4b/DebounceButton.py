@@ -35,7 +35,7 @@ try:
             print("OFF <   ")
         time.sleep(0.01)
 
-except KeyboardInterrupt
+except KeyboardInterrupt:
     print(" -> Execution aborted")
 
 finally:
