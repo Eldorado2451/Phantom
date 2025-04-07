@@ -9,8 +9,8 @@ led = Pin(19, Pin.OUT)
 
 try:
     while True:
-    led.toggle()
-    sleep(0.5)
+        led.toggle()
+        sleep(0.5)
 
 except KeyboardInterrupt:
     print(" -> execution aborted")
