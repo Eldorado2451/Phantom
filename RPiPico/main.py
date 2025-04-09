@@ -1,5 +1,5 @@
 """
-Not sure if this works yet...
+Blinks 5 times and stops.
 """
 
 from machine import Pin
@@ -8,12 +8,10 @@ from time import sleep
 led = Pin(19, Pin.OUT)
 
 try:
-    while True:
+    for i in range(10):
         led.toggle()
         sleep(0.5)
-
-except KeyboardInterrupt:
-    print(" -> execution aborted")
-
+except:
+    pass
 finally:
-    machine.reset()
+    print("Done blinking!")
