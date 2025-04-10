@@ -6,7 +6,7 @@ print ("Listening on UART0 at 9600 baud...")
 
 try:
     while True:
-        if ser.in_waiting > 0;
+        if ser.in_waiting > 0:
             data = ser.readline().decode('utf-8', errors='ignore').strip()
             if data:
                 print(f"Received: {data}")
