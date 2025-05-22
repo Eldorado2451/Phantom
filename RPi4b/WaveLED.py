@@ -16,6 +16,7 @@ function. This essentially turns ON the next LED n iteration steps later, creati
 - Lists are used to store and organize the values of 'dc' and the iterative value 'a' (dcList & aList)
 - A 'range(len(<list>))' loop is used to read the respective values of 'dc' and 'a' and update them
 - Since len(dcList) == len(aList), the same "loop variable" 'i' can be used
+- pwm.ChangeDutyCycle(<value>) only runs when 0 <= <value> <= 100
 
 #Author
 Eldorado
