@@ -1,0 +1,2 @@
+This repo was created to learn about Raspberry Pi and Python. The local repo is linked to a remote repo on Github with the same name.
+GUIs are run using tkinter, which are not part of the "bare" Homebrew version of Python3
