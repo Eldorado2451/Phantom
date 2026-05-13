@@ -12,7 +12,7 @@ for i in range(5):
     if i % 2 == 0:
         GPIO.output(17, GPIO.HIGH)  # Set DIR to HIGH
     else:
-        GPIO.output(17, GPIO.HIGH)  # Set DIR to LOW
+        GPIO.output(17, GPIO.LOW)  # Set DIR to LOW
     for j in range(200):                # Sets up a for loop
         GPIO.output(18, GPIO.HIGH)      # Writes a HIGH signal (3v3) to GPIO18
         print("HIGH")                   # Prints the status of pin state
