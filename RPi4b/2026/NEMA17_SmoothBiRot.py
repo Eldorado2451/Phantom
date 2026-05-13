@@ -11,8 +11,8 @@ GPIO.setup(17, GPIO.OUT)    # Sets GPIO17 to output = DIR
 
 LOW_time = 0			# Init LOW_time
 
-min_LOWtime = 0.001
-max_LOWtime = 0.01
+min_LOWtime = 0.0005
+max_LOWtime = 0.002
 steps = 600
 A = (max_LOWtime - min_LOWtime) / 2
 offset = (max_LOWtime + min_LOWtime) / 2
