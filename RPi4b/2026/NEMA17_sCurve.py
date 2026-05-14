@@ -1,4 +1,4 @@
-# Function of the code: Drives the stepper driver via GPIO18. The stepper motor moves CW, switches and moves CCW 200 steps. It does this smoothly using a cosine to define the time the STEP signal is low. 
+5# Function of the code: Drives the stepper driver via GPIO18. The stepper motor moves CW, switches and moves CCW 200 steps. It does this smoothly using a cosine to define the time the STEP signal is low. 
 # Stepper driver used: A4988
 
 import RPi.GPIO as GPIO
@@ -11,23 +11,23 @@ GPIO.setup(17, GPIO.OUT)    # Sets GPIO17 to output = DIR
 
 LOW_time = 0			# Init LOW_time
 
-min_Vel = 1000
-max_Vel = 10000
-sCurve_Steps = 200
-motionProfile_Steps = 1000
+min_Vel = 500
+max_Vel = 2000
+motionProfile_Steps = 1200
+sCurve_Steps = motionProfile_Steps/4
 
 min_LOWtime = 1/max_Vel
 max_LOWtime = 1/min_Vel
 
 def calcLOW_time(x):
-    if x == 0:
+    if x == 0 or x == motionProfile_Steps:
         return max_LOWtime
-    if 0 <= x < sCurve_Steps:
-        return 1/((max_Vel-min_Vel)*3*(x/sCurve_Steps)**2 - (max_Vel-min_Vel)*2*(x/sCurve_Steps)**3)
-    if sCurve_Steps <= x < (motionProfile_Steps-sCurve_Steps):
+    if 0 < x <= sCurve_Steps:
+        return 1/((max_Vel-min_Vel)*3*(x/sCurve_Steps)**2 - (max_Vel-min_Vel)*2*(x/sCurve_Steps)**3+min_Vel)
+    if sCurve_Steps < x <= (motionProfile_Steps-sCurve_Steps):
         return min_LOWtime
-    if (motionProfile_Steps-sCurve_Steps) <= x < motionProfile_Steps:
-        return 1/((max_Vel-min_Vel)*3*((x-motionProfile_Steps+sCurve_Steps)/sCurve_Steps)**2 - (max_Vel-min_Vel)*2*((x-motionProfile_Steps+sCurve_Steps)/sCurve_Steps)**3)
+    if (motionProfile_Steps-sCurve_Steps) < x < motionProfile_Steps:
+        return 1/(-(max_Vel-min_Vel)*3*((x-motionProfile_Steps+sCurve_Steps)/sCurve_Steps)**2 + (max_Vel-min_Vel)*2*((x-motionProfile_Steps+sCurve_Steps)/sCurve_Steps)**3+max_Vel)
     else:
         return None
 
