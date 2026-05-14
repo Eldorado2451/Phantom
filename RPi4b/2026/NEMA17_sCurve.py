@@ -1,4 +1,4 @@
-5# Function of the code: Drives the stepper driver via GPIO18. The stepper motor moves CW, switches and moves CCW 200 steps. It does this smoothly using a cosine to define the time the STEP signal is low. 
+# Function of the code: Drives the stepper driver via GPIO18. The stepper motor moves CW, switches and moves CCW 200 steps. It does this smoothly using a cosine to define the time the STEP signal is low. 
 # Stepper driver used: A4988
 
 import RPi.GPIO as GPIO
